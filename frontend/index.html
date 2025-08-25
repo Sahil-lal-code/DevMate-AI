@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevMate AI - Code Assistant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon"><i class="fas fa-robot"></i></span>
+                <h1>DevMate AI</h1>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#code-editor">Editor</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="hero">
+                <div class="hero-content">
+                    <h2>Your AI-Powered Coding Companion</h2>
+                    <p>Understand, improve, and execute code in multiple languages with the help of AI</p>
+                </div>
+            </section>
+
+            <section id="code-editor" class="editor-section">
+                <div class="editor-controls">
+                    <div class="language-selector">
+                        <select id="language-select">
+                            <option value="python">Python</option>
+                            <option value="javascript">JavaScript</option>
+                            <option value="java">Java</option>
+                            <option value="c">C</option>
+                            <option value="c++">C++</option>
+                        </select>
+                    </div>
+                    <div class="font-size-selector">
+                        <label for="font-size">Font Size:</label>
+                        <select id="font-size">
+                            <option value="12">12px</option>
+                            <option value="14" selected>14px</option>
+                            <option value="16">16px</option>
+                            <option value="18">18px</option>
+                            <option value="20">20px</option>
+                            <option value="22">22px</option>
+                            <option value="24">24px</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="editor-container">
+                    <div id="monaco-editor" class="code-editor"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="explain-btn" class="btn">
+                        <i class="fas fa-comment-alt"></i> Explain Code
+                    </button>
+                    <button id="improve-btn" class="btn">
+                        <i class="fas fa-magic"></i> Improve Code
+                    </button>
+                    <button id="run-btn" class="btn run-btn">
+                        <i class="fas fa-play"></i> Run Code
+                    </button>
+                </div>
+
+                <div class="output-container">
+                    <div class="output-tabs">
+                        <button class="tab-btn active" data-tab="output">Output</button>
+                        <button class="tab-btn" data-tab="explanation">Explanation</button>
+                        <button class="tab-btn" data-tab="improved">Improved Code</button>
+                    </div>
+                    
+                    <div id="output" class="tab-content active">
+                        <pre id="output-content">Output will appear here...</pre>
+                    </div>
+                    
+                    <div id="explanation" class="tab-content">
+                        <div id="explanation-content">Code explanation will appear here...</div>
+                    </div>
+                    
+                    <div id="improved" class="tab-content">
+                        <div id="improved-code">
+                            <div class="improved-code-placeholder">
+                                <i class="fas fa-code"></i>
+                                <p>Your improved code will appear here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="features" class="features-section">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>Code Explanation</h3>
+                        <p>Get natural language explanations of what your code does, line by line.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3>Code Improvement</h3>
+                        <p>Receive suggestions for better variable names, removing unused code, and refactoring tips.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <h3>Online Compiler</h3>
+                        <p>Run your code directly in the browser with our integrated compiler.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="about" class="about-section">
+            <div class="about-container">
+                <h2>About the Developer</h2>
+                <div class="developer-card">
+                    <div class="developer-info">
+                        <h3>Sahil Lal</h3>
+                        <p>Engineer Student & Full Stack Web Developer</p>
+                        <p>Passionate about Data Science, Artificial Intelligence and Machine Learning</p>
+                        <div class="social-links">
+                            <a href="https://github.com/Sahil-lal-code" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/sahil-lal-4152a92a0/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <p class="copyright">© 2023 DevMate AI. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Monaco Editor Configuration -->
+    <script>
+        var require = { paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs' }};
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs/loader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs/editor/editor.main.nls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.40.0/min/vs/editor/editor.main.js"></script>
+    
+    <!-- Monaco Editor Initialization -->
+    <script src="js/monaco-loader.js"></script>
+    
+    <!-- Main App Script -->
+    <script src="js/script.js"></script>
+</body>
+</html>
