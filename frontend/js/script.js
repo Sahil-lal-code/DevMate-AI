@@ -7,7 +7,7 @@ const SAMPLE_CODES = {
     'c++': `// Welcome to DevMate AI\n#include <iostream>\nusing namespace std;\n\nclass Rectangle {\n    int width, height;\npublic:\n    Rectangle(int w, int h) : width(w), height(h) {}\n    int area() { return width * height; }\n};\n\nint main() {\n    Rectangle rect(3, 4);\n    cout << "Area: " << rect.area();\n    return 0;\n}`
 };
 
-const API_BASE_URL = 'http://localhost:3008/api';
+const API_BASE_URL = 'https://devmate-ai-backend.onrender.com/api';
 
 // Editor functions
 function enhanceEditorTouch() {
