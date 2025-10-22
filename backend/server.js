@@ -35,7 +35,7 @@ if (!process.env.GEMINI_API_KEY) {
 // Initialize Gemini model (may throw if key missing — that's expected)
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
-  model: 'gemini-1.5-flash',
+  model: 'gemini-2.0-flash',
   generationConfig: { maxOutputTokens: 2000 }
 });
 
